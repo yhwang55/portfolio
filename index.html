@@ -441,6 +441,10 @@
       object-position: top;
       flex-shrink: 0;
     }
+    .slider-track img.contain {
+      object-fit: contain;
+      background: #0d0d0d;
+    }
     .slider-btn {
       position: absolute;
       top: 50%;
@@ -670,7 +674,7 @@
                 <img src="assets/main.png" alt="Main Dashboard"/>
                 <img src="assets/language.png" alt="Language Settings"/>
                 <img src="assets/indicators.png" alt="Used Indicators"/>
-                <img src="assets/scatter.png" alt="Scatter Chart"/>
+                <img src="assets/scatter.png" alt="Scatter Chart" class="contain"/>
               </div>
               <button class="slider-btn slider-prev" data-slider="fed-slider">&#8592;</button>
               <button class="slider-btn slider-next" data-slider="fed-slider">&#8594;</button>
