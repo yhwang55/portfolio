@@ -579,10 +579,109 @@
 
     <div class="projects-list">
 
-      <!-- PROJECT 1: KOSPI -->
+      <!-- PROJECT 1: KCU_FED -->
       <div class="project-card fade-up">
         <div class="project-left">
           <div class="project-index">Project — 01</div>
+          <h3 class="project-title">Federal Reserve Economic Data Chatbot</h3>
+          <p class="project-title-kr">RAG 기반 연준 경제 데이터 분석 챗봇 · KCU 2026 Best Project Award 1위</p>
+          <div class="project-tags">
+            <span class="tag">Python</span>
+            <span class="tag">Flask</span>
+            <span class="tag">LangChain</span>
+            <span class="tag">ChromaDB</span>
+            <span class="tag">GPT-4o-mini</span>
+            <span class="tag">FRED API</span>
+            <span class="tag">RAG</span>
+            <span class="tag">Plotly.js</span>
+            <span class="tag">APScheduler</span>
+            <span class="tag">Render</span>
+          </div>
+          <div class="project-links">
+            <a href="https://github.com/yhwang55/fed-data-chatbot" target="_blank" class="project-link">↗ GitHub</a>
+            <a href="https://kcu-fed.onrender.com/" target="_blank" class="project-link project-link-secondary">↗ Live App</a>
+            <a href="https://github.com/yhwang55/fed-data-chatbot/blob/main/kcu_fed_report.pdf" target="_blank" class="project-link project-link-secondary">↗ Report</a>
+          </div>
+        </div>
+        <div class="project-right">
+          <p class="project-desc">
+            Full-stack AI chatbot that answers questions about U.S. Federal Reserve economic data
+            in natural language — returning numbers, policy context, and future projections simultaneously.
+            Built as Project Lead Engineer; designed and implemented the entire pipeline from data ingestion
+            to frontend deployment. Awarded 1st place at KCU 2026.
+          </p>
+          <div class="project-highlights">
+            <div class="highlight">
+              <div class="highlight-bullet"></div>
+              <div class="highlight-text">
+                <strong>SEP end-to-end pipeline</strong> — directly crawled Fed PDF projections (not available via API), structured into CSV, injected into GPT prompts, and overlaid on charts as dotted forecast lines.
+              </div>
+            </div>
+            <div class="highlight">
+              <div class="highlight-bullet"></div>
+              <div class="highlight-text">
+                <strong>Dual-endpoint RAG architecture</strong> — /api/chat returns text answers from ChromaDB-retrieved Fed speeches (223 docs) and FOMC minutes; /api/chart returns Plotly chart data from FRED API in parallel.
+              </div>
+            </div>
+            <div class="highlight">
+              <div class="highlight-bullet"></div>
+              <div class="highlight-text">
+                <strong>Natural language → FRED ticker mapping</strong> via keyword logic (no LLM call) with auto chart-type switching — time-series queries render as line charts, relationship queries as scatter plots.
+              </div>
+            </div>
+            <div class="highlight">
+              <div class="highlight-bullet"></div>
+              <div class="highlight-text">
+                <strong>APScheduler + retry pipeline</strong> — daily 4AM auto-update from Fed RSS; custom retry logic resolved 202-chunk gap from embedding rate limits (429).
+              </div>
+            </div>
+          </div>
+          <div class="metric-bar-wrap">
+            <div class="metric-row">
+              <span class="metric-label">Speeches</span>
+              <div class="metric-bar"><div class="metric-fill" data-val="75"></div></div>
+              <span class="metric-val">223</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">Indicators</span>
+              <div class="metric-bar"><div class="metric-fill" data-val="100"></div></div>
+              <span class="metric-val">10+</span>
+            </div>
+            <div class="metric-row">
+              <span class="metric-label">KCU Rank</span>
+              <div class="metric-bar"><div class="metric-fill" data-val="100" style="background: linear-gradient(90deg, var(--accent), var(--accent2));"></div></div>
+              <span class="metric-val" style="color: var(--accent);">1st</span>
+            </div>
+          </div>
+
+          <!-- SCREENSHOT SLIDER -->
+          <div class="slider-wrap">
+            <div class="slider-header">
+              <span class="slider-label">App Preview</span>
+              <div class="slider-tabs">
+                <span class="slider-tab active" data-idx="0">Main</span>
+                <span class="slider-tab" data-idx="1">Settings</span>
+                <span class="slider-tab" data-idx="2">Indicators</span>
+              </div>
+            </div>
+            <div class="slider-viewport">
+              <div class="slider-track" id="fed-slider">
+                <img src="assets/main.png" alt="Main Dashboard"/>
+                <img src="assets/language.png" alt="Language Settings"/>
+                <img src="assets/indicators.png" alt="Used Indicators"/>
+              </div>
+              <button class="slider-btn slider-prev" data-slider="fed-slider">&#8592;</button>
+              <button class="slider-btn slider-next" data-slider="fed-slider">&#8594;</button>
+              <div class="slider-counter" id="fed-counter">1 / 3</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- PROJECT 2: KOSPI -->
+      <div class="project-card fade-up">
+        <div class="project-left">
+          <div class="project-index">Project — 02</div>
           <h3 class="project-title">KOSPI Anomaly Detection &amp; Macro Factor Attribution</h3>
           <p class="project-title-kr">KOSPI 이상 탐지 + 거시경제 인과 분석</p>
           <div class="project-tags">
@@ -686,10 +785,10 @@
         </div>
       </div>
 
-      <!-- PROJECT 2: M5 -->
+      <!-- PROJECT 3: M5 -->
       <div class="project-card fade-up">
         <div class="project-left">
-          <div class="project-index">Project — 02</div>
+          <div class="project-index">Project — 03</div>
           <h3 class="project-title">M5 Demand Forecasting</h3>
           <p class="project-title-kr">M5 수요 예측 MVP</p>
           <div class="project-tags">
@@ -908,6 +1007,7 @@
       tabs.forEach((tab, i) => tab.addEventListener('click', () => goTo(i)));
     }
 
+    initSlider('fed-slider', 'fed-counter');
     initSlider('kospi-slider', 'kospi-counter');
   </script>
 
