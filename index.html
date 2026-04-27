@@ -17,7 +17,6 @@
       --muted: #888;
       --card-bg: #141414;
     }
-
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
     body {
@@ -29,7 +28,6 @@
       min-height: 100vh;
       overflow-x: hidden;
     }
-
     body::before {
       content: '';
       position: fixed;
@@ -39,7 +37,6 @@
       z-index: 999;
       opacity: 0.4;
     }
-
     body::after {
       content: '';
       position: fixed;
@@ -51,8 +48,6 @@
       pointer-events: none;
       z-index: 0;
     }
-
-    /* ── NAV ── */
     nav {
       position: fixed;
       top: 0; left: 0; right: 0;
@@ -82,8 +77,6 @@
       transition: color 0.2s;
     }
     .nav-links a:hover { color: var(--accent); }
-
-    /* ── HERO ── */
     .hero {
       position: relative;
       z-index: 1;
@@ -141,12 +134,9 @@
       color: var(--accent);
     }
     .hero-meta-value { font-size: 13px; color: var(--text); }
-
     .blob { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
     .blob-1 { width: 500px; height: 500px; background: rgba(200,245,66,0.06); top: -100px; right: -100px; }
     .blob-2 { width: 300px; height: 300px; background: rgba(66,245,200,0.04); bottom: 100px; left: 30%; }
-
-    /* ── SECTION ── */
     section {
       position: relative;
       z-index: 1;
@@ -166,8 +156,6 @@
       letter-spacing: -0.02em;
     }
     .section-line { flex: 1; height: 1px; background: var(--border); }
-
-    /* ── ABOUT ── */
     .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
     .about-text { color: var(--muted); line-height: 1.9; font-size: 13px; }
     .about-text p + p { margin-top: 16px; }
@@ -188,8 +176,6 @@
       margin-bottom: 8px;
     }
     .stat-label { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
-
-    /* ── PROJECTS ── */
     #projects { background: var(--bg2); }
     .projects-list { display: flex; flex-direction: column; gap: 2px; }
     .project-card {
@@ -230,23 +216,49 @@
       transition: all 0.2s;
     }
     .project-card:hover .tag { border-color: rgba(200,245,66,0.3); color: var(--accent); }
-    .project-links { display: flex; gap: 16px; flex-wrap: wrap; }
+
+    /* ── PROJECT LINK BUTTONS (MODIFIED) ── */
+    .project-links {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
     .project-link {
       font-size: 11px;
       letter-spacing: 0.08em;
       text-transform: uppercase;
-      color: var(--accent);
+      font-family: 'DM Mono', monospace;
       text-decoration: none;
-      display: flex;
+      display: inline-flex;
       align-items: center;
       gap: 6px;
-      border-bottom: 1px solid rgba(200,245,66,0.3);
-      padding-bottom: 2px;
-      transition: border-color 0.2s;
+      padding: 8px 16px;
+      border-radius: 3px;
+      border: 1px solid var(--accent);
+      color: #0a0a0a;
+      background: var(--accent);
+      transition: background 0.18s, color 0.18s, border-color 0.18s, transform 0.15s, box-shadow 0.18s;
+      white-space: nowrap;
     }
-    .project-link:hover { border-color: var(--accent); }
-    .project-link-secondary { color: var(--muted); border-color: rgba(136,136,136,0.3); }
-    .project-link-secondary:hover { color: var(--accent2); border-color: var(--accent2); }
+    .project-link:hover {
+      background: transparent;
+      color: var(--accent);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 16px rgba(200,245,66,0.15);
+    }
+    .project-link-secondary {
+      background: transparent;
+      color: var(--muted);
+      border-color: #3a3a3a;
+    }
+    .project-link-secondary:hover {
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      border-color: var(--muted);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    }
+
     .project-desc { color: var(--muted); font-size: 13px; line-height: 1.85; margin-bottom: 32px; }
     .project-highlights { display: flex; flex-direction: column; gap: 12px; }
     .highlight { display: flex; gap: 14px; align-items: flex-start; }
@@ -259,8 +271,6 @@
     }
     .highlight-text { font-size: 12px; color: var(--muted); line-height: 1.7; }
     .highlight-text strong { color: var(--text); font-weight: 400; }
-
-    /* metric bar */
     .metric-bar-wrap { margin-top: 28px; display: flex; flex-direction: column; gap: 12px; }
     .metric-row { display: flex; align-items: center; gap: 12px; }
     .metric-label { font-size: 11px; color: var(--muted); width: 90px; flex-shrink: 0; }
@@ -273,8 +283,6 @@
       transition: width 1.2s cubic-bezier(0.16,1,0.3,1);
     }
     .metric-val { font-size: 11px; color: var(--accent); width: 40px; text-align: right; }
-
-    /* ── SKILLS ── */
     .skills-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 2px; }
     .skill-group {
       background: var(--card-bg);
@@ -306,8 +314,6 @@
       border-radius: 50%;
       flex-shrink: 0;
     }
-
-    /* ── CONTACT ── */
     #contact { border-top: 1px solid var(--border); }
     .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: center; }
     .contact-headline {
@@ -324,8 +330,6 @@
     .contact-item-value { font-size: 14px; color: var(--text); }
     .contact-item-value a { color: var(--text); text-decoration: none; transition: color 0.2s; }
     .contact-item-value a:hover { color: var(--accent); }
-
-    /* ── FOOTER ── */
     footer {
       position: relative;
       z-index: 1;
@@ -336,8 +340,6 @@
       align-items: center;
     }
     footer span { font-size: 11px; color: var(--muted); }
-
-    /* ── ANIMATIONS ── */
     .fade-up {
       opacity: 1;
       transform: translateY(0);
@@ -345,7 +347,6 @@
     }
     .js-loaded .fade-up { opacity: 0; transform: translateY(32px); }
     .js-loaded .fade-up.visible { opacity: 1; transform: translateY(0); }
-
     .hero-tag, .hero-name, .hero-name-kr, .hero-desc, .hero-meta {
       opacity: 0;
       animation: heroEnter 1s cubic-bezier(0.16,1,0.3,1) forwards;
@@ -355,12 +356,10 @@
     .hero-name-kr { animation-delay: 0.35s; }
     .hero-desc { animation-delay: 0.45s; }
     .hero-meta { animation-delay: 0.6s; }
-
     @keyframes heroEnter {
       from { opacity: 0; transform: translateY(24px); }
       to   { opacity: 1; transform: translateY(0); }
     }
-
     .scroll-hint {
       position: absolute;
       bottom: 32px; right: 48px;
@@ -380,8 +379,6 @@
       width: 1px; height: 48px;
       background: linear-gradient(to bottom, var(--muted), transparent);
     }
-
-    /* ── SCREENSHOT SLIDER ── */
     .slider-wrap {
       margin-top: 28px;
       border: 1px solid var(--border);
@@ -404,11 +401,7 @@
       text-transform: uppercase;
       color: var(--accent);
     }
-    .slider-tabs {
-      display: flex;
-      gap: 4px;
-      flex-wrap: wrap;
-    }
+    .slider-tabs { display: flex; gap: 4px; flex-wrap: wrap; }
     .slider-tab {
       font-size: 9px;
       letter-spacing: 0.06em;
@@ -478,7 +471,6 @@
       border-radius: 10px;
       backdrop-filter: blur(4px);
     }
-
     @media (max-width: 900px) {
       nav { padding: 16px 24px; }
       .hero { padding: 0 24px 64px; }
@@ -492,7 +484,6 @@
   </style>
 </head>
 <body>
-
   <nav>
     <div class="nav-logo">YH</div>
     <ul class="nav-links">
@@ -502,8 +493,6 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
-
-  <!-- HERO -->
   <section class="hero">
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
@@ -530,8 +519,6 @@
     </div>
     <div class="scroll-hint">Scroll</div>
   </section>
-
-  <!-- ABOUT -->
   <section id="about">
     <div class="section-header fade-up">
       <span class="section-num">01</span>
@@ -540,50 +527,24 @@
     </div>
     <div class="about-grid fade-up">
       <div class="about-text">
-        <p>
-          Junior at the University of Wisconsin–Madison triple-majoring in Data Science,
-          Economics, and Information Science. Originally from Korea, I bring a cross-cultural
-          perspective to data problems — having worked in strategic planning at TCC Steel
-          and sports analytics at Leeco Sports.
-        </p>
-        <p>
-          My work sits at the intersection of machine learning and business decision-making.
-          I care about building models that are explainable, robust, and actually useful
-          in production — from anomaly detection pipelines to macro factor attribution.
-        </p>
-        <p>
-          Outside of data, I've completed military service as an operations specialist
-          and am passionate about applying analytical thinking to real-world impact.
-          Trilingual in Korean, English, and Chinese.
-        </p>
+        <p>Junior at the University of Wisconsin–Madison triple-majoring in Data Science, Economics, and Information Science. Originally from Korea, I bring a cross-cultural perspective to data problems — having worked in strategic planning at TCC Steel and sports analytics at Leeco Sports.</p>
+        <p>My work sits at the intersection of machine learning and business decision-making. I care about building models that are explainable, robust, and actually useful in production — from anomaly detection pipelines to macro factor attribution.</p>
+        <p>Outside of data, I've completed military service as an operations specialist and am passionate about applying analytical thinking to real-world impact. Trilingual in Korean, English, and Chinese.</p>
       </div>
       <div class="about-stats">
-        <div class="stat-box">
-          <div class="stat-value">120K+</div>
-          <div class="stat-label">Data Points Processed</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-value">44%</div>
-          <div class="stat-label">Market Event Match Rate</div>
-        </div>
-        <div class="stat-box">
-          <div class="stat-value">2027</div>
-          <div class="stat-label">Expected Graduation</div>
-        </div>
+        <div class="stat-box"><div class="stat-value">120K+</div><div class="stat-label">Data Points Processed</div></div>
+        <div class="stat-box"><div class="stat-value">44%</div><div class="stat-label">Market Event Match Rate</div></div>
+        <div class="stat-box"><div class="stat-value">2027</div><div class="stat-label">Expected Graduation</div></div>
       </div>
     </div>
   </section>
-
-  <!-- PROJECTS -->
   <section id="projects">
     <div class="section-header fade-up">
       <span class="section-num">02</span>
       <h2 class="section-title">Projects</h2>
       <div class="section-line"></div>
     </div>
-
     <div class="projects-list">
-
       <!-- PROJECT 1: KCU_FED -->
       <div class="project-card fade-up">
         <div class="project-left">
@@ -591,16 +552,7 @@
           <h3 class="project-title">Federal Reserve Economic Data Chatbot</h3>
           <p class="project-title-kr">RAG 기반 연준 경제 데이터 분석 챗봇 · KCU 2026 Best Project Award 1위</p>
           <div class="project-tags">
-            <span class="tag">Python</span>
-            <span class="tag">Flask</span>
-            <span class="tag">LangChain</span>
-            <span class="tag">ChromaDB</span>
-            <span class="tag">GPT-4o-mini</span>
-            <span class="tag">FRED API</span>
-            <span class="tag">RAG</span>
-            <span class="tag">Plotly.js</span>
-            <span class="tag">APScheduler</span>
-            <span class="tag">Render</span>
+            <span class="tag">Python</span><span class="tag">Flask</span><span class="tag">LangChain</span><span class="tag">ChromaDB</span><span class="tag">GPT-4o-mini</span><span class="tag">FRED API</span><span class="tag">RAG</span><span class="tag">Plotly.js</span><span class="tag">APScheduler</span><span class="tag">Render</span>
           </div>
           <div class="project-links">
             <a href="https://github.com/yhwang55/fed-data-chatbot" target="_blank" class="project-link">↗ GitHub</a>
@@ -609,57 +561,18 @@
           </div>
         </div>
         <div class="project-right">
-          <p class="project-desc">
-            Full-stack AI chatbot that answers questions about U.S. Federal Reserve economic data
-            in natural language — returning numbers, policy context, and future projections simultaneously.
-            Built as Project Lead Engineer; designed and implemented the entire pipeline from data ingestion
-            to frontend deployment. Awarded 1st place at KCU 2026.
-          </p>
+          <p class="project-desc">Full-stack AI chatbot that answers questions about U.S. Federal Reserve economic data in natural language — returning numbers, policy context, and future projections simultaneously. Built as Project Lead Engineer; designed and implemented the entire pipeline from data ingestion to frontend deployment. Awarded 1st place at KCU 2026.</p>
           <div class="project-highlights">
-            <div class="highlight">
-              <div class="highlight-bullet"></div>
-              <div class="highlight-text">
-                <strong>SEP end-to-end pipeline</strong> — directly crawled Fed PDF projections (not available via API), structured into CSV, injected into GPT prompts, and overlaid on charts as dotted forecast lines.
-              </div>
-            </div>
-            <div class="highlight">
-              <div class="highlight-bullet"></div>
-              <div class="highlight-text">
-                <strong>Dual-endpoint RAG architecture</strong> — /api/chat returns text answers from ChromaDB-retrieved Fed speeches (223 docs) and FOMC minutes; /api/chart returns Plotly chart data from FRED API in parallel.
-              </div>
-            </div>
-            <div class="highlight">
-              <div class="highlight-bullet"></div>
-              <div class="highlight-text">
-                <strong>Natural language → FRED ticker mapping</strong> via keyword logic (no LLM call) with auto chart-type switching — time-series queries render as line charts, relationship queries as scatter plots.
-              </div>
-            </div>
-            <div class="highlight">
-              <div class="highlight-bullet"></div>
-              <div class="highlight-text">
-                <strong>APScheduler + retry pipeline</strong> — daily 4AM auto-update from Fed RSS; custom retry logic resolved 202-chunk gap from embedding rate limits (429).
-              </div>
-            </div>
+            <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text"><strong>SEP end-to-end pipeline</strong> — directly crawled Fed PDF projections (not available via API), structured into CSV, injected into GPT prompts, and overlaid on charts as dotted forecast lines.</div></div>
+            <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text"><strong>Dual-endpoint RAG architecture</strong> — /api/chat returns text answers from ChromaDB-retrieved Fed speeches (223 docs) and FOMC minutes; /api/chart returns Plotly chart data from FRED API in parallel.</div></div>
+            <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text"><strong>Natural language → FRED ticker mapping</strong> via keyword logic (no LLM call) with auto chart-type switching — time-series queries render as line charts, relationship queries as scatter plots.</div></div>
+            <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text"><strong>APScheduler + retry pipeline</strong> — daily 4AM auto-update from Fed RSS; custom retry logic resolved 202-chunk gap from embedding rate limits (429).</div></div>
           </div>
           <div class="metric-bar-wrap">
-            <div class="metric-row">
-              <span class="metric-label">Speeches</span>
-              <div class="metric-bar"><div class="metric-fill" data-val="75"></div></div>
-              <span class="metric-val">223</span>
-            </div>
-            <div class="metric-row">
-              <span class="metric-label">Indicators</span>
-              <div class="metric-bar"><div class="metric-fill" data-val="100"></div></div>
-              <span class="metric-val">10+</span>
-            </div>
-            <div class="metric-row">
-              <span class="metric-label">KCU Rank</span>
-              <div class="metric-bar"><div class="metric-fill" data-val="100" style="background: linear-gradient(90deg, var(--accent), var(--accent2));"></div></div>
-              <span class="metric-val" style="color: var(--accent);">1st</span>
-            </div>
+            <div class="metric-row"><span class="metric-label">Speeches</span><div class="metric-bar"><div class="metric-fill" data-val="75"></div></div><span class="metric-val">223</span></div>
+            <div class="metric-row"><span class="metric-label">Indicators</span><div class="metric-bar"><div class="metric-fill" data-val="100"></div></div><span class="metric-val">10+</span></div>
+            <div class="metric-row"><span class="metric-label">KCU Rank</span><div class="metric-bar"><div class="metric-fill" data-val="100" style="background: linear-gradient(90deg, var(--accent), var(--accent2));"></div></div><span class="metric-val" style="color: var(--accent);">1st</span></div>
           </div>
-
-          <!-- SCREENSHOT SLIDER -->
           <div class="slider-wrap">
             <div class="slider-header">
               <span class="slider-label">App Preview</span>
@@ -684,7 +597,6 @@
           </div>
         </div>
       </div>
-
       <!-- PROJECT 2: KOSPI -->
       <div class="project-card fade-up">
         <div class="project-left">
@@ -692,14 +604,7 @@
           <h3 class="project-title">KOSPI Anomaly Detection &amp; Macro Factor Attribution</h3>
           <p class="project-title-kr">KOSPI 이상 탐지 + 거시경제 인과 분석</p>
           <div class="project-tags">
-            <span class="tag">Isolation Forest</span>
-            <span class="tag">HMM</span>
-            <span class="tag">SHAP</span>
-            <span class="tag">OLS Regression</span>
-            <span class="tag">KRX API</span>
-            <span class="tag">FRED API</span>
-            <span class="tag">Tableau</span>
-            <span class="tag">Streamlit</span>
+            <span class="tag">Isolation Forest</span><span class="tag">HMM</span><span class="tag">SHAP</span><span class="tag">OLS Regression</span><span class="tag">KRX API</span><span class="tag">FRED API</span><span class="tag">Tableau</span><span class="tag">Streamlit</span>
           </div>
           <div class="project-links">
             <a href="https://github.com/yhwang55/kospi-anomaly-detection" target="_blank" class="project-link">↗ GitHub</a>
@@ -709,58 +614,18 @@
           </div>
         </div>
         <div class="project-right">
-          <p class="project-desc">
-            Full-stack market intelligence system built on top of a KOSPI 100 anomaly
-            detection pipeline. Extended Isolation Forest anomaly detection with Hidden
-            Markov Model regime classification (bull/bear), OLS regression and SHAP-based
-            macro factor attribution, and interactive Tableau Public + Streamlit dashboards —
-            covering 1,500+ trading days from 2020 to 2026 across 5 macro indicators.
-          </p>
+          <p class="project-desc">Full-stack market intelligence system built on top of a KOSPI 100 anomaly detection pipeline. Extended Isolation Forest anomaly detection with Hidden Markov Model regime classification (bull/bear), OLS regression and SHAP-based macro factor attribution, and interactive Tableau Public + Streamlit dashboards — covering 1,500+ trading days from 2020 to 2026 across 5 macro indicators.</p>
           <div class="project-highlights">
-            <div class="highlight">
-              <div class="highlight-bullet"></div>
-              <div class="highlight-text">
-                <strong>Market-wide anomaly detection</strong> across KOSPI 100 stocks using multivariate Isolation Forest on 6 engineered features — flags systemic stress when 10%+ of stocks are anomalous on the same day.
-              </div>
-            </div>
-            <div class="highlight">
-              <div class="highlight-bullet"></div>
-              <div class="highlight-text">
-                <strong>HMM Regime Detection</strong> on KOSPI index returns identifies bull/bear regimes; CUSUM change-point detection provides non-parametric cross-validation of regime transitions.
-              </div>
-            </div>
-            <div class="highlight">
-              <div class="highlight-bullet"></div>
-              <div class="highlight-text">
-                <strong>OLS + SHAP attribution</strong> identifies USD/KRW as the dominant macro driver of anomaly frequency (p&lt;0.001); VIX and US 10Y yield also statistically significant.
-              </div>
-            </div>
-            <div class="highlight">
-              <div class="highlight-bullet"></div>
-              <div class="highlight-text">
-                Deployed on <strong>Streamlit Cloud + Tableau Public</strong> with 7 interactive tabs: Anomaly Detection, Feature Analysis, Cross-Stock Comparison, Market Event Validation, Macro Overview, Regime Analysis, Factor Attribution.
-              </div>
-            </div>
+            <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text"><strong>Market-wide anomaly detection</strong> across KOSPI 100 stocks using multivariate Isolation Forest on 6 engineered features — flags systemic stress when 10%+ of stocks are anomalous on the same day.</div></div>
+            <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text"><strong>HMM Regime Detection</strong> on KOSPI index returns identifies bull/bear regimes; CUSUM change-point detection provides non-parametric cross-validation of regime transitions.</div></div>
+            <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text"><strong>OLS + SHAP attribution</strong> identifies USD/KRW as the dominant macro driver of anomaly frequency (p&lt;0.001); VIX and US 10Y yield also statistically significant.</div></div>
+            <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text">Deployed on <strong>Streamlit Cloud + Tableau Public</strong> with 7 interactive tabs: Anomaly Detection, Feature Analysis, Cross-Stock Comparison, Market Event Validation, Macro Overview, Regime Analysis, Factor Attribution.</div></div>
           </div>
           <div class="metric-bar-wrap">
-            <div class="metric-row">
-              <span class="metric-label">Event Match</span>
-              <div class="metric-bar"><div class="metric-fill" data-val="44"></div></div>
-              <span class="metric-val">44.3%</span>
-            </div>
-            <div class="metric-row">
-              <span class="metric-label">Anomaly Days</span>
-              <div class="metric-bar"><div class="metric-fill" data-val="55"></div></div>
-              <span class="metric-val">147</span>
-            </div>
-            <div class="metric-row">
-              <span class="metric-label">Return Mag.</span>
-              <div class="metric-bar"><div class="metric-fill" data-val="90"></div></div>
-              <span class="metric-val">36.5×</span>
-            </div>
+            <div class="metric-row"><span class="metric-label">Event Match</span><div class="metric-bar"><div class="metric-fill" data-val="44"></div></div><span class="metric-val">44.3%</span></div>
+            <div class="metric-row"><span class="metric-label">Anomaly Days</span><div class="metric-bar"><div class="metric-fill" data-val="55"></div></div><span class="metric-val">147</span></div>
+            <div class="metric-row"><span class="metric-label">Return Mag.</span><div class="metric-bar"><div class="metric-fill" data-val="90"></div></div><span class="metric-val">36.5x</span></div>
           </div>
-
-          <!-- SCREENSHOT SLIDER -->
           <div class="slider-wrap">
             <div class="slider-header">
               <span class="slider-label">Dashboard Preview</span>
@@ -791,7 +656,6 @@
           </div>
         </div>
       </div>
-
       <!-- PROJECT 3: M5 -->
       <div class="project-card fade-up">
         <div class="project-left">
@@ -799,12 +663,7 @@
           <h3 class="project-title">M5 Demand Forecasting</h3>
           <p class="project-title-kr">M5 수요 예측 MVP</p>
           <div class="project-tags">
-            <span class="tag">LightGBM</span>
-            <span class="tag">Time Series</span>
-            <span class="tag">Python</span>
-            <span class="tag">Feature Eng.</span>
-            <span class="tag">Walmart Data</span>
-            <span class="tag">Streamlit</span>
+            <span class="tag">LightGBM</span><span class="tag">Time Series</span><span class="tag">Python</span><span class="tag">Feature Eng.</span><span class="tag">Walmart Data</span><span class="tag">Streamlit</span>
           </div>
           <div class="project-links">
             <a href="https://github.com/yhwang55/m5-demand-forecasting" target="_blank" class="project-link">↗ GitHub</a>
@@ -813,57 +672,21 @@
           </div>
         </div>
         <div class="project-right">
-          <p class="project-desc">
-            MVP forecasting pipeline for the M5 Forecasting Competition dataset —
-            28-day hierarchical demand prediction across 30,490 Walmart SKUs
-            spanning 3 states and multiple store/category levels.
-            Focused on practical accuracy using gradient boosting with
-            lag features, rolling statistics, and calendar effects.
-          </p>
+          <p class="project-desc">MVP forecasting pipeline for the M5 Forecasting Competition dataset — 28-day hierarchical demand prediction across 30,490 Walmart SKUs spanning 3 states and multiple store/category levels. Focused on practical accuracy using gradient boosting with lag features, rolling statistics, and calendar effects.</p>
           <div class="project-highlights">
-            <div class="highlight">
-              <div class="highlight-bullet"></div>
-              <div class="highlight-text">
-                <strong>Baseline → LightGBM → Prophet</strong> 3-stage pipeline; LightGBM achieves RMSE −23%, MAE −24% vs expanding mean baseline on Walmart 30,490 SKU dataset.
-              </div>
-            </div>
-            <div class="highlight">
-              <div class="highlight-bullet"></div>
-              <div class="highlight-text">
-                <strong>Price elasticity analysis</strong> via log-log OLS regression quantifies category-level demand sensitivity — HOBBIES (β = −1.34) vs FOODS (β = −0.72).
-              </div>
-            </div>
-            <div class="highlight">
-              <div class="highlight-bullet"></div>
-              <div class="highlight-text">
-                Pipeline designed for <strong>real-world applicability</strong> — temporal split respecting time order, modular feature engineering, and Streamlit dashboard MVP.
-              </div>
-            </div>
+            <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text"><strong>Baseline → LightGBM → Prophet</strong> 3-stage pipeline; LightGBM achieves RMSE -23%, MAE -24% vs expanding mean baseline on Walmart 30,490 SKU dataset.</div></div>
+            <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text"><strong>Price elasticity analysis</strong> via log-log OLS regression quantifies category-level demand sensitivity — HOBBIES (b = -1.34) vs FOODS (b = -0.72).</div></div>
+            <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text">Pipeline designed for <strong>real-world applicability</strong> — temporal split respecting time order, modular feature engineering, and Streamlit dashboard MVP.</div></div>
           </div>
           <div class="metric-bar-wrap">
-            <div class="metric-row">
-              <span class="metric-label">RMSE Impr.</span>
-              <div class="metric-bar"><div class="metric-fill" data-val="23" style="background: linear-gradient(90deg, var(--accent), var(--accent2));"></div></div>
-              <span class="metric-val">−23%</span>
-            </div>
-            <div class="metric-row">
-              <span class="metric-label">MAE Impr.</span>
-              <div class="metric-bar"><div class="metric-fill" data-val="24" style="background: linear-gradient(90deg, var(--accent), var(--accent2));"></div></div>
-              <span class="metric-val">−24%</span>
-            </div>
-            <div class="metric-row">
-              <span class="metric-label">SKUs</span>
-              <div class="metric-bar"><div class="metric-fill" data-val="100" style="background: linear-gradient(90deg, #42f5c8, #4287f5);"></div></div>
-              <span class="metric-val" style="color: var(--accent2);">30,490</span>
-            </div>
+            <div class="metric-row"><span class="metric-label">RMSE Impr.</span><div class="metric-bar"><div class="metric-fill" data-val="23" style="background: linear-gradient(90deg, var(--accent), var(--accent2));"></div></div><span class="metric-val">-23%</span></div>
+            <div class="metric-row"><span class="metric-label">MAE Impr.</span><div class="metric-bar"><div class="metric-fill" data-val="24" style="background: linear-gradient(90deg, var(--accent), var(--accent2));"></div></div><span class="metric-val">-24%</span></div>
+            <div class="metric-row"><span class="metric-label">SKUs</span><div class="metric-bar"><div class="metric-fill" data-val="100" style="background: linear-gradient(90deg, #42f5c8, #4287f5);"></div></div><span class="metric-val" style="color: var(--accent2);">30,490</span></div>
           </div>
         </div>
       </div>
-
     </div>
   </section>
-
-  <!-- SKILLS -->
   <section id="skills">
     <div class="section-header fade-up">
       <span class="section-num">03</span>
@@ -871,51 +694,12 @@
       <div class="section-line"></div>
     </div>
     <div class="skills-grid fade-up">
-      <div class="skill-group">
-        <div class="skill-group-title">Languages</div>
-        <ul class="skill-list">
-          <li>Python</li>
-          <li>R</li>
-          <li>SQL</li>
-          <li>VBA</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">ML / Data</div>
-        <ul class="skill-list">
-          <li>Scikit-learn</li>
-          <li>LightGBM</li>
-          <li>hmmlearn (HMM)</li>
-          <li>SHAP</li>
-          <li>statsmodels</li>
-          <li>Pandas / NumPy</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Visualization</div>
-        <ul class="skill-list">
-          <li>Tableau</li>
-          <li>Plotly</li>
-          <li>Streamlit</li>
-          <li>Matplotlib</li>
-          <li>ggplot2</li>
-        </ul>
-      </div>
-      <div class="skill-group">
-        <div class="skill-group-title">Tools</div>
-        <ul class="skill-list">
-          <li>Git / GitHub</li>
-          <li>Jupyter</li>
-          <li>FRED API / ECOS</li>
-          <li>KRX API</li>
-          <li>Selenium</li>
-          <li>Excel</li>
-        </ul>
-      </div>
+      <div class="skill-group"><div class="skill-group-title">Languages</div><ul class="skill-list"><li>Python</li><li>R</li><li>SQL</li><li>VBA</li></ul></div>
+      <div class="skill-group"><div class="skill-group-title">ML / Data</div><ul class="skill-list"><li>Scikit-learn</li><li>LightGBM</li><li>hmmlearn (HMM)</li><li>SHAP</li><li>statsmodels</li><li>Pandas / NumPy</li></ul></div>
+      <div class="skill-group"><div class="skill-group-title">Visualization</div><ul class="skill-list"><li>Tableau</li><li>Plotly</li><li>Streamlit</li><li>Matplotlib</li><li>ggplot2</li></ul></div>
+      <div class="skill-group"><div class="skill-group-title">Tools</div><ul class="skill-list"><li>Git / GitHub</li><li>Jupyter</li><li>FRED API / ECOS</li><li>KRX API</li><li>Selenium</li><li>Excel</li></ul></div>
     </div>
   </section>
-
-  <!-- CONTACT -->
   <section id="contact">
     <div class="section-header fade-up">
       <span class="section-num">04</span>
@@ -923,58 +707,26 @@
       <div class="section-line"></div>
     </div>
     <div class="contact-grid fade-up">
-      <div class="contact-headline">
-        Let's<br>work<br><span>together.</span>
-      </div>
+      <div class="contact-headline">Let's<br>work<br><span>together.</span></div>
       <div class="contact-info">
-        <div class="contact-item">
-          <span class="contact-item-label">Email</span>
-          <span class="contact-item-value">
-            <a href="mailto:yoondbs3@gmail.com">yoondbs3@gmail.com</a>
-          </span>
-        </div>
-        <div class="contact-item">
-          <span class="contact-item-label">GitHub</span>
-          <span class="contact-item-value">
-            <a href="https://github.com/yhwang55" target="_blank">github.com/yhwang55</a>
-          </span>
-        </div>
-        <div class="contact-item">
-          <span class="contact-item-label">Tableau Public</span>
-          <span class="contact-item-value">
-            <a href="https://public.tableau.com/app/profile/yoon.hwang7766" target="_blank">public.tableau.com/yoon.hwang7766</a>
-          </span>
-        </div>
-        <div class="contact-item">
-          <span class="contact-item-label">University</span>
-          <span class="contact-item-value">University of Wisconsin–Madison</span>
-        </div>
-        <div class="contact-item">
-          <span class="contact-item-label">Location</span>
-          <span class="contact-item-value">Madison, WI — from Seoul, Korea</span>
-        </div>
+        <div class="contact-item"><span class="contact-item-label">Email</span><span class="contact-item-value"><a href="mailto:yoondbs3@gmail.com">yoondbs3@gmail.com</a></span></div>
+        <div class="contact-item"><span class="contact-item-label">GitHub</span><span class="contact-item-value"><a href="https://github.com/yhwang55" target="_blank">github.com/yhwang55</a></span></div>
+        <div class="contact-item"><span class="contact-item-label">Tableau Public</span><span class="contact-item-value"><a href="https://public.tableau.com/app/profile/yoon.hwang7766" target="_blank">public.tableau.com/yoon.hwang7766</a></span></div>
+        <div class="contact-item"><span class="contact-item-label">University</span><span class="contact-item-value">University of Wisconsin-Madison</span></div>
+        <div class="contact-item"><span class="contact-item-label">Location</span><span class="contact-item-value">Madison, WI — from Seoul, Korea</span></div>
       </div>
     </div>
   </section>
-
-  <!-- FOOTER -->
   <footer>
     <span>© Yoon Hwang</span>
     <span>Data Science · Economics · Information Science — UW–Madison</span>
   </footer>
-
   <script>
     document.body.classList.add('js-loaded');
-
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('visible');
-      });
+      entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
     }, { threshold: 0.05 });
-
     document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
-
-    // Metric bar animation
     const barObserver = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -985,10 +737,7 @@
         }
       });
     }, { threshold: 0.1 });
-
     document.querySelectorAll('.metric-bar-wrap').forEach(el => barObserver.observe(el));
-
-    // Screenshot slider
     function initSlider(trackId, counterId) {
       const track = document.getElementById(trackId);
       const counter = document.getElementById(counterId);
@@ -996,27 +745,19 @@
       const imgs = track.querySelectorAll('img');
       const total = imgs.length;
       let cur = 0;
-
       const tabs = track.closest('.slider-wrap').querySelectorAll('.slider-tab');
-
       function goTo(idx) {
         cur = (idx + total) % total;
         track.style.transform = `translateX(-${cur * 100}%)`;
         if (counter) counter.textContent = `${cur + 1} / ${total}`;
         tabs.forEach((t, i) => t.classList.toggle('active', i === cur));
       }
-
-      track.closest('.slider-viewport').querySelector('.slider-prev')
-        .addEventListener('click', () => goTo(cur - 1));
-      track.closest('.slider-viewport').querySelector('.slider-next')
-        .addEventListener('click', () => goTo(cur + 1));
-
+      track.closest('.slider-viewport').querySelector('.slider-prev').addEventListener('click', () => goTo(cur - 1));
+      track.closest('.slider-viewport').querySelector('.slider-next').addEventListener('click', () => goTo(cur + 1));
       tabs.forEach((tab, i) => tab.addEventListener('click', () => goTo(i)));
     }
-
     initSlider('fed-slider', 'fed-counter');
     initSlider('kospi-slider', 'kospi-counter');
   </script>
-
 </body>
 </html>
