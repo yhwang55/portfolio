@@ -156,26 +156,234 @@
       letter-spacing: -0.02em;
     }
     .section-line { flex: 1; height: 1px; background: var(--border); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
-    .about-text { color: var(--muted); line-height: 1.9; font-size: 13px; }
-    .about-text p + p { margin-top: 16px; }
-    .about-stats { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 2px; }
-    .stat-box {
+    /* ── ABOUT (redesigned) ── */
+    .about-card {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      gap: 0;
       background: var(--card-bg);
       border: 1px solid var(--border);
-      padding: 28px 24px;
+      overflow: hidden;
+      transition: border-color 0.3s;
+    }
+    .about-card:hover { border-color: var(--accent); }
+
+    /* Left: photo column */
+    .about-photo-col {
+      position: relative;
+      background: #0d0d0d;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 40px 28px 32px;
+      border-right: 1px solid var(--border);
+    }
+    .about-photo-frame {
+      width: 160px;
+      height: 160px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 2px solid var(--accent);
+      margin-bottom: 20px;
+      flex-shrink: 0;
+    }
+    .about-photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .about-photo-name {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700;
+      font-size: 18px;
+      letter-spacing: -0.02em;
+      text-align: center;
+      margin-bottom: 4px;
+    }
+    .about-photo-role {
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .about-quick-info {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .about-quick-row {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+    .about-quick-row:last-child { border-bottom: none; padding-bottom: 0; }
+    .about-quick-label {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .about-quick-val {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* Right: content column */
+    .about-content-col {
+      padding: 40px 44px;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+    .about-text {
+      color: var(--muted);
+      line-height: 1.9;
+      font-size: 13px;
+    }
+    .about-text p + p { margin-top: 12px; }
+
+    /* Keyword tags */
+    .about-keywords {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .about-keywords-label {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+    }
+    .about-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .about-tag {
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      padding: 5px 12px;
+      border: 1px solid rgba(200,245,66,0.35);
+      color: var(--accent);
+      border-radius: 2px;
+      background: rgba(200,245,66,0.05);
+    }
+
+    /* Skill bars */
+    .about-skills {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+    .about-skills-label {
+      font-size: 9px;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 2px;
+    }
+    .about-skill-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .about-skill-name {
+      font-size: 11px;
+      color: var(--muted);
+      width: 110px;
+      flex-shrink: 0;
+    }
+    .about-skill-bar {
+      flex: 1;
+      height: 3px;
+      background: var(--border);
+      border-radius: 2px;
+      overflow: hidden;
+    }
+    .about-skill-fill {
+      height: 100%;
+      border-radius: 2px;
+      width: 0;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: width 1.2s cubic-bezier(0.16,1,0.3,1);
+    }
+    .about-skill-pct {
+      font-size: 10px;
+      color: var(--muted);
+      width: 32px;
+      text-align: right;
+      flex-shrink: 0;
+    }
+
+    /* Stats row at bottom */
+    .about-stats-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2px;
+      margin-top: 4px;
+    }
+    .stat-box {
+      background: #0d0d0d;
+      border: 1px solid var(--border);
+      padding: 20px 16px;
       transition: border-color 0.2s;
     }
     .stat-box:hover { border-color: var(--accent); }
     .stat-value {
       font-family: 'Syne', sans-serif;
-      font-size: 32px;
+      font-size: 24px;
       font-weight: 700;
       color: var(--accent);
       line-height: 1;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
     }
-    .stat-label { font-size: 11px; color: var(--muted); letter-spacing: 0.06em; }
+    .stat-label { font-size: 10px; color: var(--muted); letter-spacing: 0.06em; }
+
+    .project-toggle {
+      display: none;
+      font-size: 10px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: none;
+      border: 1px solid rgba(200,245,66,0.3);
+      padding: 6px 14px;
+      cursor: pointer;
+      border-radius: 2px;
+      margin-top: 16px;
+      width: 100%;
+      font-family: 'DM Mono', monospace;
+      transition: border-color 0.2s;
+    }
+    .project-toggle:hover { border-color: var(--accent); }
+    @media (max-width: 900px) {
+      .project-toggle { display: block; }
+      .project-highlights.collapsed { display: none; }
+      .about-card { grid-template-columns: 1fr; }
+      .about-photo-col { border-right: none; border-bottom: 1px solid var(--border); padding: 32px 24px; }
+      .about-content-col { padding: 28px 24px; }
+      .about-stats-row { grid-template-columns: 1fr 1fr; }
+    }
+    .award-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 10px;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      color: #0a0a0a;
+      background: var(--accent);
+      padding: 4px 12px;
+      border-radius: 2px;
+      font-weight: 600;
+      margin-bottom: 14px;
+    }
     #projects { background: var(--bg2); }
     .projects-list { display: flex; flex-direction: column; gap: 2px; }
     .project-card {
@@ -330,6 +538,36 @@
     .contact-item-value { font-size: 14px; color: var(--text); }
     .contact-item-value a { color: var(--text); text-decoration: none; transition: color 0.2s; }
     .contact-item-value a:hover { color: var(--accent); }
+    .back-to-top {
+      position: fixed;
+      bottom: 32px;
+      right: 32px;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 16px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      z-index: 50;
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.3s, transform 0.3s, border-color 0.2s, color 0.2s;
+      pointer-events: none;
+    }
+    .back-to-top.visible {
+      opacity: 1;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+    .back-to-top:hover {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
     footer {
       position: relative;
       z-index: 1;
@@ -498,7 +736,7 @@
     <div class="blob blob-2"></div>
     <div class="hero-tag">Data Science · Economics · Information Science — UW–Madison</div>
     <h1 class="hero-name">Yoon<br>Hwang</h1>
-    <p class="hero-name-kr">황윤</p>
+    <p class="hero-name-kr"><strong style="font-weight:500; color:var(--text);">황윤</strong></p>
     <p class="hero-desc">
       Data/AI engineer applying machine learning to real business problems.
       From anomaly detection in financial markets to demand forecasting at scale.
@@ -510,7 +748,7 @@
       </div>
       <div class="hero-meta-item">
         <span class="hero-meta-label">Major</span>
-        <span class="hero-meta-value">Data Science · Economics · Info Science</span>
+        <span class="hero-meta-value">Data Science · Economics · Info Science + CS Certificate</span>
       </div>
       <div class="hero-meta-item">
         <span class="hero-meta-label">Languages</span>
@@ -525,16 +763,107 @@
       <h2 class="section-title">About</h2>
       <div class="section-line"></div>
     </div>
-    <div class="about-grid fade-up">
-      <div class="about-text">
-        <p>Junior at the University of Wisconsin–Madison triple-majoring in Data Science, Economics, and Information Science. Originally from Korea, I bring a cross-cultural perspective to data problems — having worked in strategic planning at TCC Steel and sports analytics at Leeco Sports.</p>
-        <p>My work sits at the intersection of machine learning and business decision-making. I care about building models that are explainable, robust, and actually useful in production — from anomaly detection pipelines to macro factor attribution.</p>
-        <p>Outside of data, I've completed military service as an operations specialist and am passionate about applying analytical thinking to real-world impact. Trilingual in Korean, English, and Chinese.</p>
+    <div class="about-card fade-up">
+
+      <!-- LEFT: photo + quick info -->
+      <div class="about-photo-col">
+        <div class="about-photo-frame">
+          <img src="assets/profile.jpg" alt="Yoon Hwang"/>
+        </div>
+        <div class="about-photo-name">Yoon Hwang</div>
+        <div class="about-photo-role"><strong style="font-weight:500;">황윤</strong> · Data/AI Engineer</div>
+        <div class="about-quick-info">
+          <div class="about-quick-row">
+            <span class="about-quick-label">University</span>
+            <span class="about-quick-val">UW–Madison</span>
+          </div>
+          <div class="about-quick-row">
+            <span class="about-quick-label">Major</span>
+            <span class="about-quick-val">Data Science · Economics · Info Science</span>
+            <span class="about-quick-val" style="font-size:10px; color:var(--muted); margin-top:3px; font-family:'Noto Sans KR', sans-serif; font-weight:300;">데이터 사이언스 · 경제학 · 정보공학 트리플 전공</span>
+            <span class="about-quick-val" style="font-size:10px; color:var(--muted); font-family:'Noto Sans KR', sans-serif; font-weight:300;">+ 컴퓨터 공학 부전공</span>
+          </div>
+          <div class="about-quick-row">
+            <span class="about-quick-label">Languages</span>
+            <span class="about-quick-val">Korean · English · Chinese</span>
+          </div>
+          <div class="about-quick-row">
+            <span class="about-quick-label">Location</span>
+            <span class="about-quick-val">Madison, WI — from Seoul, Korea</span>
+          </div>
+          <div class="about-quick-row">
+            <span class="about-quick-label">Graduation</span>
+            <span class="about-quick-val">Expected Dec 2027</span>
+          </div>
+          <div class="about-quick-row">
+            <span class="about-quick-label">Certificate</span>
+            <span class="about-quick-val">Computer Science</span>
+          </div>
+        </div>
       </div>
-      <div class="about-stats">
-        <div class="stat-box"><div class="stat-value">120K+</div><div class="stat-label">Data Points Processed</div></div>
-        <div class="stat-box"><div class="stat-value">44%</div><div class="stat-label">Market Event Match Rate</div></div>
-        <div class="stat-box"><div class="stat-value">2027</div><div class="stat-label">Expected Graduation</div></div>
+
+      <!-- RIGHT: content -->
+      <div class="about-content-col">
+
+        <div class="about-text">
+          <p>Junior at the University of Wisconsin–Madison triple-majoring in Data Science, Economics, and Information Science. Originally from Korea, I bring a cross-cultural perspective to data problems — having worked in strategic planning at TCC Steel and sports analytics at Leeco Sports.</p>
+          <p>My work sits at the intersection of machine learning and business decision-making. I care about building models that are explainable, robust, and actually useful in production — from anomaly detection pipelines to macro factor attribution.</p>
+        </div>
+
+        <!-- Keyword Tags -->
+        <div class="about-keywords">
+          <span class="about-keywords-label">Core Keywords</span>
+          <div class="about-tags">
+            <span class="about-tag">Anomaly Detection</span>
+            <span class="about-tag">Demand Forecasting</span>
+            <span class="about-tag">RAG / LLM</span>
+            <span class="about-tag">Macro Factor Analysis</span>
+            <span class="about-tag">Time Series</span>
+            <span class="about-tag">Unsupervised ML</span>
+            <span class="about-tag">SHAP / Explainability</span>
+            <span class="about-tag">Full-stack Deployment</span>
+            <span class="about-tag">Financial Markets</span>
+            <span class="about-tag">Cross-cultural</span>
+          </div>
+        </div>
+
+        <!-- Skill Bars -->
+        <div class="about-skills">
+          <span class="about-skills-label">Technical Proficiency</span>
+          <div class="about-skill-row">
+            <span class="about-skill-name">Python / ML</span>
+            <div class="about-skill-bar"><div class="about-skill-fill" data-val="92"></div></div>
+            <span class="about-skill-pct">92%</span>
+          </div>
+          <div class="about-skill-row">
+            <span class="about-skill-name">Data Analysis</span>
+            <div class="about-skill-bar"><div class="about-skill-fill" data-val="88"></div></div>
+            <span class="about-skill-pct">88%</span>
+          </div>
+          <div class="about-skill-row">
+            <span class="about-skill-name">Visualization</span>
+            <div class="about-skill-bar"><div class="about-skill-fill" data-val="82"></div></div>
+            <span class="about-skill-pct">82%</span>
+          </div>
+          <div class="about-skill-row">
+            <span class="about-skill-name">LLM / RAG</span>
+            <div class="about-skill-bar"><div class="about-skill-fill" data-val="75"></div></div>
+            <span class="about-skill-pct">75%</span>
+          </div>
+          <div class="about-skill-row">
+            <span class="about-skill-name">Full-stack Deploy</span>
+            <div class="about-skill-bar"><div class="about-skill-fill" data-val="70"></div></div>
+            <span class="about-skill-pct">70%</span>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="about-stats-row">
+          <div class="stat-box"><div class="stat-value">120K+</div><div class="stat-label">Data Points Processed</div></div>
+          <div class="stat-box"><div class="stat-value">#1</div><div class="stat-label">KCU 2026 Best Project Award</div></div>
+          <div class="stat-box"><div class="stat-value">3</div><div class="stat-label">Live Deployed Projects</div></div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -549,6 +878,7 @@
       <div class="project-card fade-up">
         <div class="project-left">
           <div class="project-index">Project — 01</div>
+          <div class="award-badge">🏆 KCU 2026 Best Project — 1st Place</div>
           <h3 class="project-title">Federal Reserve Economic Data Chatbot</h3>
           <p class="project-title-kr">RAG 기반 연준 경제 데이터 분석 챗봇 · KCU 2026 Best Project Award 1위</p>
           <div class="project-tags">
@@ -562,7 +892,8 @@
         </div>
         <div class="project-right">
           <p class="project-desc">Full-stack AI chatbot that answers questions about U.S. Federal Reserve economic data in natural language — returning numbers, policy context, and future projections simultaneously. Built as Project Lead Engineer; designed and implemented the entire pipeline from data ingestion to frontend deployment. Awarded 1st place at KCU 2026.</p>
-          <div class="project-highlights">
+          <button class="project-toggle" onclick="toggleHighlights(this)">▼ Show Details</button>
+          <div class="project-highlights collapsed">
             <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text"><strong>SEP end-to-end pipeline</strong> — directly crawled Fed PDF projections (not available via API), structured into CSV, injected into GPT prompts, and overlaid on charts as dotted forecast lines.</div></div>
             <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text"><strong>Dual-endpoint RAG architecture</strong> — /api/chat returns text answers from ChromaDB-retrieved Fed speeches (223 docs) and FOMC minutes; /api/chart returns Plotly chart data from FRED API in parallel.</div></div>
             <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text"><strong>Natural language → FRED ticker mapping</strong> via keyword logic (no LLM call) with auto chart-type switching — time-series queries render as line charts, relationship queries as scatter plots.</div></div>
@@ -615,7 +946,8 @@
         </div>
         <div class="project-right">
           <p class="project-desc">Full-stack market intelligence system built on top of a KOSPI 100 anomaly detection pipeline. Extended Isolation Forest anomaly detection with Hidden Markov Model regime classification (bull/bear), OLS regression and SHAP-based macro factor attribution, and interactive Tableau Public + Streamlit dashboards — covering 1,500+ trading days from 2020 to 2026 across 5 macro indicators.</p>
-          <div class="project-highlights">
+          <button class="project-toggle" onclick="toggleHighlights(this)">▼ Show Details</button>
+          <div class="project-highlights collapsed">
             <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text"><strong>Market-wide anomaly detection</strong> across KOSPI 100 stocks using multivariate Isolation Forest on 6 engineered features — flags systemic stress when 10%+ of stocks are anomalous on the same day.</div></div>
             <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text"><strong>HMM Regime Detection</strong> on KOSPI index returns identifies bull/bear regimes; CUSUM change-point detection provides non-parametric cross-validation of regime transitions.</div></div>
             <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text"><strong>OLS + SHAP attribution</strong> identifies USD/KRW as the dominant macro driver of anomaly frequency (p&lt;0.001); VIX and US 10Y yield also statistically significant.</div></div>
@@ -673,7 +1005,8 @@
         </div>
         <div class="project-right">
           <p class="project-desc">MVP forecasting pipeline for the M5 Forecasting Competition dataset — 28-day hierarchical demand prediction across 30,490 Walmart SKUs spanning 3 states and multiple store/category levels. Focused on practical accuracy using gradient boosting with lag features, rolling statistics, and calendar effects.</p>
-          <div class="project-highlights">
+          <button class="project-toggle" onclick="toggleHighlights(this)">▼ Show Details</button>
+          <div class="project-highlights collapsed">
             <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text"><strong>Baseline → LightGBM → Prophet</strong> 3-stage pipeline; LightGBM achieves RMSE -23%, MAE -24% vs expanding mean baseline on Walmart 30,490 SKU dataset.</div></div>
             <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text"><strong>Price elasticity analysis</strong> via log-log OLS regression quantifies category-level demand sensitivity — HOBBIES (b = -1.34) vs FOODS (b = -0.72).</div></div>
             <div class="highlight"><div class="highlight-bullet"></div><div class="highlight-text">Pipeline designed for <strong>real-world applicability</strong> — temporal split respecting time order, modular feature engineering, and Streamlit dashboard MVP.</div></div>
@@ -694,7 +1027,12 @@
       <div class="section-line"></div>
     </div>
     <div class="skills-grid fade-up">
-      <div class="skill-group"><div class="skill-group-title">Languages</div><ul class="skill-list"><li>Python</li><li>R</li><li>SQL</li><li>VBA</li></ul></div>
+      <div class="skill-group"><div class="skill-group-title">Languages</div><ul class="skill-list"><li><span>Python</span></li><li><span>R</span></li><li><span>SQL</span></li><li><span>VBA</span></li></ul>
+        <div style="margin-top:16px; padding-top:14px; border-top:1px solid var(--border);">
+          <div style="font-size:9px; letter-spacing:0.1em; text-transform:uppercase; color:var(--accent); margin-bottom:8px;">Primary</div>
+          <div style="font-size:10px; color:var(--muted);">Python · SQL</div>
+        </div>
+      </div>
       <div class="skill-group"><div class="skill-group-title">ML / Data</div><ul class="skill-list"><li>Scikit-learn</li><li>LightGBM</li><li>hmmlearn (HMM)</li><li>SHAP</li><li>statsmodels</li><li>Pandas / NumPy</li></ul></div>
       <div class="skill-group"><div class="skill-group-title">Visualization</div><ul class="skill-list"><li>Tableau</li><li>Plotly</li><li>Streamlit</li><li>Matplotlib</li><li>ggplot2</li></ul></div>
       <div class="skill-group"><div class="skill-group-title">Tools</div><ul class="skill-list"><li>Git / GitHub</li><li>Jupyter</li><li>FRED API / ECOS</li><li>KRX API</li><li>Selenium</li><li>Excel</li></ul></div>
@@ -711,6 +1049,7 @@
       <div class="contact-info">
         <div class="contact-item"><span class="contact-item-label">Email</span><span class="contact-item-value"><a href="mailto:yoondbs3@gmail.com">yoondbs3@gmail.com</a></span></div>
         <div class="contact-item"><span class="contact-item-label">GitHub</span><span class="contact-item-value"><a href="https://github.com/yhwang55" target="_blank">github.com/yhwang55</a></span></div>
+        <div class="contact-item"><span class="contact-item-label">LinkedIn</span><span class="contact-item-value"><a href="https://www.linkedin.com/in/yoon-hwang" target="_blank">linkedin.com/in/yoon-hwang</a></span></div>
         <div class="contact-item"><span class="contact-item-label">Tableau Public</span><span class="contact-item-value"><a href="https://public.tableau.com/app/profile/yoon.hwang7766" target="_blank">public.tableau.com/yoon.hwang7766</a></span></div>
         <div class="contact-item"><span class="contact-item-label">University</span><span class="contact-item-value">University of Wisconsin-Madison</span></div>
         <div class="contact-item"><span class="contact-item-label">Location</span><span class="contact-item-value">Madison, WI — from Seoul, Korea</span></div>
@@ -720,7 +1059,11 @@
   <footer>
     <span>© Yoon Hwang</span>
     <span>Data Science · Economics · Information Science — UW–Madison</span>
+    <a href="https://www.linkedin.com/in/yoon-hwang" target="_blank" style="font-size:11px; color:var(--muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">↗ LinkedIn</a>
   </footer>
+  <!-- BACK TO TOP -->
+  <button class="back-to-top" id="backToTop" aria-label="Back to top">↑</button>
+
   <script>
     document.body.classList.add('js-loaded');
     const observer = new IntersectionObserver((entries) => {
@@ -756,7 +1099,34 @@
       track.closest('.slider-viewport').querySelector('.slider-next').addEventListener('click', () => goTo(cur + 1));
       tabs.forEach((tab, i) => tab.addEventListener('click', () => goTo(i)));
     }
+    // About skill bars
+    const aboutBarObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.querySelectorAll('.about-skill-fill').forEach(fill => {
+            setTimeout(() => { fill.style.width = fill.dataset.val + '%'; }, 300);
+          });
+        }
+      });
+    }, { threshold: 0.1 });
+    const aboutCard = document.querySelector('.about-card');
+    if (aboutCard) aboutBarObserver.observe(aboutCard);
+
     initSlider('fed-slider', 'fed-counter');
+
+    // Back to top
+    const btt = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      btt.classList.toggle('visible', window.scrollY > 400);
+    });
+    btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+
+    // Mobile highlights toggle
+    function toggleHighlights(btn) {
+      const highlights = btn.nextElementSibling;
+      const collapsed = highlights.classList.toggle('collapsed');
+      btn.textContent = collapsed ? '▼ Show Details' : '▲ Hide Details';
+    }
     initSlider('kospi-slider', 'kospi-counter');
   </script>
 </body>
