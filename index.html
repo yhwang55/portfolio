@@ -7,15 +7,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Mono:ital,wght@0,300;0,400;1,300&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet"/>
   <style>
     :root {
-      --bg: #0a0a0a;
-      --bg2: #111111;
-      --bg3: #181818;
-      --border: #2a2a2a;
-      --accent: #c8f542;
-      --accent2: #42f5c8;
+      --bg: #080e1a;
+      --bg2: #0c1424;
+      --bg3: #101d30;
+      --border: #1e2e45;
+      --accent: #4d9fff;
+      --accent2: #a78bfa;
       --text: #f0f0f0;
       --muted: #888;
-      --card-bg: #141414;
+      --card-bg: #0d1829;
     }
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
@@ -42,8 +42,8 @@
       position: fixed;
       inset: 0;
       background-image:
-        linear-gradient(rgba(200,245,66,0.02) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(200,245,66,0.02) 1px, transparent 1px);
+        linear-gradient(rgba(77,159,255,0.02) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(77,159,255,0.02) 1px, transparent 1px);
       background-size: 60px 60px;
       pointer-events: none;
       z-index: 0;
@@ -57,7 +57,7 @@
       align-items: center;
       padding: 20px 48px;
       border-bottom: 1px solid var(--border);
-      background: rgba(10,10,10,0.85);
+      background: rgba(8,14,26,0.85);
       backdrop-filter: blur(12px);
     }
     .nav-logo {
@@ -135,8 +135,8 @@
     }
     .hero-meta-value { font-size: 13px; color: var(--text); }
     .blob { position: absolute; border-radius: 50%; filter: blur(80px); pointer-events: none; }
-    .blob-1 { width: 500px; height: 500px; background: rgba(200,245,66,0.06); top: -100px; right: -100px; }
-    .blob-2 { width: 300px; height: 300px; background: rgba(66,245,200,0.04); bottom: 100px; left: 30%; }
+    .blob-1 { width: 500px; height: 500px; background: rgba(77,159,255,0.06); top: -100px; right: -100px; }
+    .blob-2 { width: 300px; height: 300px; background: rgba(167,139,250,0.04); bottom: 100px; left: 30%; }
     section {
       position: relative;
       z-index: 1;
@@ -171,7 +171,7 @@
     /* Left: photo column */
     .about-photo-col {
       position: relative;
-      background: #0d0d0d;
+      background: #090f1c;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -269,10 +269,10 @@
       font-size: 10px;
       letter-spacing: 0.06em;
       padding: 5px 12px;
-      border: 1px solid rgba(200,245,66,0.35);
+      border: 1px solid rgba(77,159,255,0.35);
       color: var(--accent);
       border-radius: 2px;
-      background: rgba(200,245,66,0.05);
+      background: rgba(77,159,255,0.05);
     }
 
     /* Skill bars */
@@ -329,7 +329,7 @@
       margin-top: 4px;
     }
     .stat-box {
-      background: #0d0d0d;
+      background: #090f1c;
       border: 1px solid var(--border);
       padding: 20px 16px;
       transition: border-color 0.2s;
@@ -352,7 +352,7 @@
       text-transform: uppercase;
       color: var(--accent);
       background: none;
-      border: 1px solid rgba(200,245,66,0.3);
+      border: 1px solid rgba(77,159,255,0.3);
       padding: 6px 14px;
       cursor: pointer;
       border-radius: 2px;
@@ -377,7 +377,7 @@
       font-size: 10px;
       letter-spacing: 0.06em;
       text-transform: uppercase;
-      color: #0a0a0a;
+      color: #080e1a;
       background: var(--accent);
       padding: 4px 12px;
       border-radius: 2px;
@@ -396,7 +396,7 @@
       transition: border-color 0.3s, background 0.3s;
       cursor: default;
     }
-    .project-card:hover { border-color: var(--accent); background: #161616; }
+    .project-card:hover { border-color: var(--accent); background: #0f1f35; }
     .project-index { font-size: 11px; color: var(--accent); letter-spacing: 0.1em; margin-bottom: 20px; }
     .project-title {
       font-family: 'Syne', sans-serif;
@@ -423,7 +423,7 @@
       color: var(--muted);
       transition: all 0.2s;
     }
-    .project-card:hover .tag { border-color: rgba(200,245,66,0.3); color: var(--accent); }
+    .project-card:hover .tag { border-color: rgba(77,159,255,0.3); color: var(--accent); }
 
     /* ── PROJECT LINK BUTTONS (MODIFIED) ── */
     .project-links {
@@ -444,7 +444,7 @@
       padding: 8px 16px;
       border-radius: 3px;
       border: 1px solid var(--accent);
-      color: #0a0a0a;
+      color: #080e1a;
       background: var(--accent);
       transition: background 0.18s, color 0.18s, border-color 0.18s, transform 0.15s, box-shadow 0.18s;
       white-space: nowrap;
@@ -453,7 +453,7 @@
       background: transparent;
       color: var(--accent);
       transform: translateY(-2px);
-      box-shadow: 0 4px 16px rgba(200,245,66,0.15);
+      box-shadow: 0 4px 16px rgba(77,159,255,0.15);
     }
     .project-link-secondary {
       background: transparent;
@@ -498,7 +498,7 @@
       padding: 32px 28px;
       transition: border-color 0.2s;
     }
-    .skill-group:hover { border-color: rgba(200,245,66,0.4); }
+    .skill-group:hover { border-color: rgba(77,159,255,0.4); }
     .skill-group-title {
       font-family: 'Syne', sans-serif;
       font-size: 13px;
@@ -622,7 +622,7 @@
       border: 1px solid var(--border);
       border-radius: 6px;
       overflow: hidden;
-      background: #0d0d0d;
+      background: #090f1c;
     }
     .slider-header {
       display: flex;
@@ -652,7 +652,7 @@
       transition: all 0.2s;
     }
     .slider-tab:hover { color: var(--text); border-color: var(--border); }
-    .slider-tab.active { color: var(--accent); border-color: rgba(200,245,66,0.4); }
+    .slider-tab.active { color: var(--accent); border-color: rgba(77,159,255,0.4); }
     .slider-viewport {
       position: relative;
       overflow: hidden;
@@ -674,14 +674,14 @@
     }
     .slider-track img.contain {
       object-fit: contain;
-      background: #0d0d0d;
+      background: #090f1c;
       object-position: center;
     }
     .slider-btn {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
-      background: rgba(10,10,10,0.75);
+      background: rgba(8,14,26,0.75);
       border: 1px solid var(--border);
       color: var(--text);
       width: 32px; height: 32px;
@@ -694,7 +694,7 @@
       justify-content: center;
       backdrop-filter: blur(4px);
     }
-    .slider-btn:hover { background: rgba(200,245,66,0.15); border-color: var(--accent); color: var(--accent); }
+    .slider-btn:hover { background: rgba(77,159,255,0.15); border-color: var(--accent); color: var(--accent); }
     .slider-prev { left: 10px; }
     .slider-next { right: 10px; }
     .slider-counter {
@@ -704,7 +704,7 @@
       font-size: 9px;
       color: var(--muted);
       letter-spacing: 0.08em;
-      background: rgba(10,10,10,0.6);
+      background: rgba(8,14,26,0.6);
       padding: 2px 7px;
       border-radius: 10px;
       backdrop-filter: blur(4px);
@@ -723,7 +723,7 @@
 </head>
 <body>
   <nav>
-    <div class="nav-logo">YH</div>
+    <div class="nav-logo">YH<span style="color:var(--accent2); font-size:22px; line-height:0; vertical-align:middle;">·</span></div>
     <ul class="nav-links">
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -734,12 +734,12 @@
   <section class="hero">
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
-    <div class="hero-tag">Data Science · Economics · Information Science — UW–Madison</div>
+    <div class="hero-tag">Data Science · Economics · CS — UW–Madison '27</div>
     <h1 class="hero-name">Yoon<br>Hwang</h1>
     <p class="hero-name-kr"><strong style="font-weight:500; color:var(--text);">황윤</strong></p>
     <p class="hero-desc">
-      Data/AI engineer applying machine learning to real business problems.
-      From anomaly detection in financial markets to demand forecasting at scale.
+      I build data systems that actually ship — from market anomaly detection
+      pipelines to RAG-based AI apps. Currently studying at UW–Madison.
     </p>
     <div class="hero-meta">
       <div class="hero-meta-item">
@@ -806,8 +806,8 @@
       <div class="about-content-col">
 
         <div class="about-text">
-          <p>Junior at the University of Wisconsin–Madison triple-majoring in Data Science, Economics, and Information Science. Originally from Korea, I bring a cross-cultural perspective to data problems — having worked in strategic planning at TCC Steel and sports analytics at Leeco Sports.</p>
-          <p>My work sits at the intersection of machine learning and business decision-making. I care about building models that are explainable, robust, and actually useful in production — from anomaly detection pipelines to macro factor attribution.</p>
+          <p>Junior at UW–Madison, triple-majoring in Data Science, Economics, and Information Science — with a CS certificate. From Seoul, Korea; previously worked in strategic planning at TCC Steel and sports analytics at Leeco Sports.</p>
+          <p>I like working on problems where the output actually gets used. Most of my projects start from a real question and end with something deployed — a Streamlit app, a live chatbot, a Tableau dashboard someone can click through.</p>
         </div>
 
         <!-- Keyword Tags -->
@@ -878,7 +878,7 @@
       <div class="project-card fade-up">
         <div class="project-left">
           <div class="project-index">Project — 01</div>
-          <div class="award-badge">🏆 KCU 2026 Best Project — 1st Place</div>
+          <div class="award-badge">★ KCU 2026 — Best Project, 1st Place</div>
           <h3 class="project-title">Federal Reserve Economic Data Chatbot</h3>
           <p class="project-title-kr">RAG 기반 연준 경제 데이터 분석 챗봇 · KCU 2026 Best Project Award 1위</p>
           <div class="project-tags">
@@ -1014,7 +1014,7 @@
           <div class="metric-bar-wrap">
             <div class="metric-row"><span class="metric-label">RMSE Impr.</span><div class="metric-bar"><div class="metric-fill" data-val="23" style="background: linear-gradient(90deg, var(--accent), var(--accent2));"></div></div><span class="metric-val">-23%</span></div>
             <div class="metric-row"><span class="metric-label">MAE Impr.</span><div class="metric-bar"><div class="metric-fill" data-val="24" style="background: linear-gradient(90deg, var(--accent), var(--accent2));"></div></div><span class="metric-val">-24%</span></div>
-            <div class="metric-row"><span class="metric-label">SKUs</span><div class="metric-bar"><div class="metric-fill" data-val="100" style="background: linear-gradient(90deg, #42f5c8, #4287f5);"></div></div><span class="metric-val" style="color: var(--accent2);">30,490</span></div>
+            <div class="metric-row"><span class="metric-label">SKUs</span><div class="metric-bar"><div class="metric-fill" data-val="100" style="background: linear-gradient(90deg, #a78bfa, #7c6ff7);"></div></div><span class="metric-val" style="color: var(--accent2);">30,490</span></div>
           </div>
         </div>
       </div>
@@ -1023,7 +1023,7 @@
   <section id="skills">
     <div class="section-header fade-up">
       <span class="section-num">03</span>
-      <h2 class="section-title">Skills</h2>
+      <h2 class="section-title">Tech Stack</h2>
       <div class="section-line"></div>
     </div>
     <div class="skills-grid fade-up">
@@ -1045,7 +1045,7 @@
       <div class="section-line"></div>
     </div>
     <div class="contact-grid fade-up">
-      <div class="contact-headline">Let's<br>work<br><span>together.</span></div>
+      <div class="contact-headline">Get<br>in<br><span>touch.</span></div>
       <div class="contact-info">
         <div class="contact-item"><span class="contact-item-label">Email</span><span class="contact-item-value"><a href="mailto:yoondbs3@gmail.com">yoondbs3@gmail.com</a></span></div>
         <div class="contact-item"><span class="contact-item-label">GitHub</span><span class="contact-item-value"><a href="https://github.com/yhwang55" target="_blank">github.com/yhwang55</a></span></div>
@@ -1058,7 +1058,7 @@
   </section>
   <footer>
     <span>© Yoon Hwang</span>
-    <span>Data Science · Economics · Information Science — UW–Madison</span>
+    <span>UW–Madison '27 — Seoul, Korea</span>
     <a href="https://www.linkedin.com/in/yoon-hwang" target="_blank" style="font-size:11px; color:var(--muted); text-decoration:none; transition:color 0.2s;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--muted)'">↗ LinkedIn</a>
   </footer>
   <!-- BACK TO TOP -->
